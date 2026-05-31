@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codebar Generator</title>
+
+    <!-- code bar link library -->
+    <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js"></script>
+
+    <!-- pdf link library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</head>
+<body>
+    <img src="../images/logo.png.png" alt="Logo" class="logo">
+    <section>
+        <h4>Générateur de Code-barres</h4>
+        <div class="search_bar">
+            <input type="text" placeholder="Entrer un texte..." id="text">
+            <button id="button_code_bar">Générer</button>
+        </div>
+        <div id="box">
+            <img src="../images/barcode.png" alt="code bar">
+        </div>
+        <div id="pdf_box"></div>
+    </section>
+   
+</body>
+</html>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    background-image:url('../images/code 1.png');
+    background-repeat: no-repeat;
+    background-size: cover; 
+    
+}
+.logo {
+    display: block;
+    position: fixed;
+    top: 10px;
+    width: 300px;
+    height: auto;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 400px;
+    background-color: #fff;
+    padding: 20px;
+    flex-direction: column;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+img {
+    width: 250px;
+}
+h4 {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    font-size: 25px;
+}
+.search_bar {
+    display: flex;
+    width: 100%;
+    margin-bottom: 10px;
+}
+input {
+    width: 75%;
+    padding: 8px;
+    outline: 0;
+    border: 1px solid #0a0909;
+}
+button {
+    cursor: pointer;
+    padding: 8px;
+    background-color: #675afe;
+    color: #fff;
+    border: 1px solid #675afe;
+    letter-spacing: 1px;
+    transition: 0.5s;
+}
+button:hover {
+    background-color: #2212d9;
+}
+#button_code_bar {
+    width: 25%;
+}
+#box {
+    border: 1px solid #999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+#pdf_box {
+    width: 100%;
+}
+#pdf_box  button {
+    width: 100%;
+}
+.error {
+    text-align: center;
+    font-size: 14px;
+    padding: 8px;
+    width: 100%;
+    background-color: rgb(189,92,92);
+    color: #fff;
+}
+</style>
+<script>
+    var button_code_bar = document.getElementById('button_code_bar');
+var text = document.getElementById('text');
+var box = document.getElementById('box');
+var pdf_box = document.getElementById('pdf_box');
+
+button_code_bar.onclick = function(){
+    if(text.value.length > 0){
+        if(text.value.length < 50){
+          box.innerHTML = "<svg id='barcode'></svg>";
+          JsBarcode("#barcode", text.value);
+          box.style.border='1px solid #999';
+          pdf_box.innerHTML ="<button onclick='genererPDF()'>Télécharger le code bar</button>"
+          pdf_box.style.marginTop="10px";
+          pdf_box.style.display="flex";
+        }else {
+            box.style.border ="0";
+            box.innerHTML="<p class='error'> Le texte est trop long !</p>";
+            pdf_box.style.display ="none";
+        }
+    }else {
+       box.style.border ="0";
+       box.innerHTML="<p class='error'>Remplissez le champ !</p>";
+       pdf_box.style.display ="none";
+    }
+}
+
+function genererPDF(){
+    var opt = {
+      margin:       1,
+      filename:     `${text.value}.pdf`,
+      image:        { type: 'jpeg', quality: 0.98 },
+      html2canvas:  { scale: 2 },
+      jsPDF:        { unit: 'in', format: 'a6', orientation: 'l' }
+    };
+    html2pdf().set(opt).from(box).save();
+}
+</script>

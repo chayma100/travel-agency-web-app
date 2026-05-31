@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paiement - Agence Omra</title>
+    <link rel="stylesheet" href="../css/paiement.css">
+    <link rel="stylesheet" href="../css/njareb.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <button class="menu-toggle" id="menuToggle">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <nav class="side-menu" id="sideMenu">
+        <div class="menu-header">
+            <h2>TravelWorld</h2>
+            <p>Explorez le monde</p>
+        </div>
+        <ul class="menu-items">
+            <li><a href="acceuil.html"><i class="fas fa-home"></i> Accueil</a></li>
+            <li><a href="html.html"><i class="fas fa-globe-americas"></i> Destinations</a></li>
+            <li><a href="serv.html"><i class="fas fa-suitcase-rolling"></i> Packages</a></li>
+            <li><a href="service omra.html"><i class="fas fa-images"></i> Service Omra</a></li>
+            <li><a href="#"><i class="fas fa-envelope-open-text"></i> Contact</a></li>
+            <li><a href="#"><i class="fas fa-envelope-open-text"></i> About Us</a></li>
+            <li><a href="tableau.php"><i class="fas fa-envelope-open-text"></i> Users</a></li>
+            <li><a href="paiement.php"><i class="fas fa-envelope-open-text"></i> cards</a></li>
+        </ul>
+    </nav>
+
+    <div class="overlay" id="overlay"></div>
+    <header class="payment-header">
+        <h1><i class="fas fa-credit-card"></i> Options de Paiement</h1>
+        <p>Choisissez la méthode de paiement qui vous convient</p>
+    </header>
+
+    <main class="payment-container">
+        <!-- Etape 2: Paiement -->
+        <section class="payment-step" id="step-2">
+            <h2><i class="fas fa-wallet"></i> Méthodes de Paiement</h2>
+            
+            <div class="payment-methods">
+                <h2><i class="fas fa-wallet"></i> Méthodes de Paiement</h2>
+                
+                <div class="method-tabs">
+                    <button class="tab-btn active" data-tab="full">Paiement Complet</button>
+                    <button class="tab-btn" data-tab="installment">Paiement Échelonné</button>
+                    <button class="tab-btn" data-tab="halal">Financement Halal</button>
+                </div>
+
+                <div class="tab-content active" id="full">
+                    <div class="payment-cards">
+                        <div class="card-option">
+                            <input type="radio" name="full-payment" id="credit-card" checked>
+                            <label for="credit-card">
+                                <i class="fab fa-cc-visa"></i>
+                                <i class="fab fa-cc-mastercard"></i>
+                                Carte Bancaire
+                            </label>
+                        </div>
+                        <div class="card-option">
+                            <input type="radio" name="full-payment" id="paypal">
+                            <label for="paypal">
+                                <i class="fab fa-cc-paypal"></i>
+                                PayPal
+                            </label>
+                        </div>
+                        <div class="card-option">
+                            <input type="radio" name="full-payment" id="bank-transfer">
+                            <label for="bank-transfer">
+                                <i class="fas fa-university"></i>
+                                Virement Bancaire
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="center-container">
+                <a href="Résumé.html" class="btn-suivant">Suivant</a>
+            </div>
+
+        </section>
+    </main>
+    <script src="../js/paiement.js"></script>
+    <script src="../js/njareb.js"></script>
+</body>
+</html>

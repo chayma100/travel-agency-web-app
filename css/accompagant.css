@@ -1,0 +1,156 @@
+     * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            overflow-x: hidden;
+        }
+        
+        #assistant-container {
+            position: fixed;
+            bottom: -300px;
+            right: 20px;
+            width: 350px;
+            height: 400px;
+            background: linear-gradient(135deg, #0a1a2f 0%, #1e2a4a 100%);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            z-index: 1000;
+            opacity: 0;
+            transform: scale(0.8);
+        }
+        
+        #assistant-container.active {
+            bottom: 20px;
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        .assistant-header {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .assistant-avatar {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(45deg, #00b4ff, #0062ff);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        .assistant-title {
+            color: white;
+            font-weight: 600;
+        }
+        
+        .assistant-subtitle {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.8rem;
+        }
+        
+        .assistant-body {
+            padding: 20px;
+            height: calc(100% - 120px);
+            overflow-y: auto;
+        }
+        
+        .assistant-message {
+            background: rgba(0, 180, 255, 0.1);
+            border-radius: 10px;
+            padding: 10px 15px;
+            margin-bottom: 15px;
+            color: white;
+            border-left: 3px solid #00b4ff;
+            animation: fadeIn 0.5s ease-out;
+            transform-origin: bottom;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .assistant-footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.2);
+            display: flex;
+        }
+        
+        .assistant-input {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 20px;
+            padding: 10px 15px;
+            color: white;
+            outline: none;
+        }
+        
+        .assistant-send {
+            background: #00b4ff;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-left: 10px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .assistant-send:hover {
+            background: #0084ff;
+            transform: rotate(30deg);
+        }
+        
+        .particle {
+            position: absolute;
+            background: rgba(0, 180, 255, 0.5);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        
+        .translate-effect {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .translate-effect::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 180, 255, 0.3), transparent);
+            transform: translateX(-100%);
+            animation: translateShine 2s infinite;
+        }
+        
+        @keyframes translateShine {
+            100% { transform: translateX(100%); }
+        }

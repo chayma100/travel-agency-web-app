@@ -1,0 +1,252 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+body {
+    line-height: 1.6;
+    background-color: #f4f4f4;
+}
+
+nav {
+    background-color: white;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+a {
+    text-decoration: none;
+    color: #d3cbc0;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+a:hover {
+    color: #b88645;
+}
+header {
+    background-color: #35424a;
+    color: #ffffff;
+    padding: 20px 0;
+    text-align: center;
+}
+header h1 {
+    margin-bottom: 10px;
+}
+nav table {
+    list-style: none;
+    padding: 0;
+}
+nav table tr {
+    display: inline;
+    margin: 0 10px;
+}
+nav table tr a {
+    color: #e02828;
+    text-decoration:none;
+    font-weight: bold;
+    text-align: center;
+}
+section {
+    padding: 40px 0;
+    text-align: center;
+}
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+#home {
+    background: url(sea-house-resort-exotic-sky.jpg) no-repeat center center/cover;
+    color: #ffffff;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+#home button {
+    padding: 10px 20px;
+    background: #35424a;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+}
+#about, #services, #packages, #contact, #Avis {
+    background-color: #ffffff;
+    color: #333333;
+}
+footer {
+    background-color: #35424a;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%
+}
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10%;
+}
+form label {
+    font-weight: bold;
+}
+form input {
+    padding: 10px 20px;
+    border: 1px solid #cccccc;
+    border-radius: 100%;
+}
+form button {
+    padding: 10px 20px;
+    background: #35424a;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+}
+form textarea {
+    padding: 10px 20px;
+    border: 1px solid #cccccc;
+    border-radius: 100%;    
+}
+
+/* ANIMATION SIMPLE DES IMAGES */
+@keyframes slideUp {
+    from { 
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+/* Reset des images */
+.animated :is(.card-img, img) {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* Animation pour TOUTES les images */
+.card-img, .travel-form img, .form-container img {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.7s ease-out;
+    will-change: transform, opacity;
+}
+
+.card.animated .card-img:nth-child(1) { transition-delay: 0.1s; }
+.card.animated .card-img:nth-child(2) { transition-delay: 0.2s; }
+.card.animated .card-img:nth-child(3) { transition-delay: 0.3s; }
+.card.animated .card-img:nth-child(4) { transition-delay: 0.4s; }
+.card.animated .card-img:nth-child(5) { transition-delay: 0.5s; }
+.card.animated .card-img:nth-child(6) { transition-delay: 0.6s; }
+.card.animated .card-img:nth-child(7) { transition-delay: 0.7s; }
+.card.animated .card-img:nth-child(8) { transition-delay: 0.8s; }
+.card.animated .card-img:nth-child(9) { transition-delay: 0.9s; }
+.card.animated .card-img:nth-child(10) { transition-delay: 1s; }
+.card.animated .card-img:nth-child(11) { transition-delay: 1.1s; }
+.card.animated .card-img:nth-child(12) { transition-delay: 1.2s; }
+.card.animated .card-img:nth-child(13) { transition-delay: 1.3s; }
+.card.animated .card-img:nth-child(14) { transition-delay: 1.4s; }
+/* Continuez jusqu'au nombre max d'images par card */
+
+
+.container {
+    perspective: 1000px;
+  }
+  
+  #ia-button2 {
+    position: relative;
+    background: #003300; /* Vert foncé IA */
+    border: 2px solid #00ff99;
+    color: #00ff99;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    border-radius: 12px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    box-shadow: 0 0 20px #00ff9933;
+  }
+  
+  #ia-button2:hover {
+    background: #4B0082; /* Violet IA */
+    border-color: #cc66ff;
+    color: #cc66ff;
+    box-shadow: 0 0 40px #cc66ffaa;
+    transform: scale(1.05);
+  }
+  
+  #ia-button2 span {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .scanner {
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, #00ff9977, transparent);
+    animation: scan 2s linear infinite;
+    z-index: 1;
+    pointer-events: none;
+  }
+  
+  @keyframes scan {
+    0% { top: -100%; }
+    50% { top: 0%; }
+    100% { top: 100%; }
+  }
+  .ia-button2 {
+    display: inline-block;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #89f7fe, #66a6ff); /* cyan à bleu */
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: 'Segoe UI', sans-serif;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 0 10px rgba(102, 166, 255, 0.4);
+    animation: pulse 2.5s infinite ease-in-out;
+  }
+  
+  /* Hover effet : rebond doux + lumière */
+  .ia-button2:hover {
+    transform: scale(1.06);
+    background: linear-gradient(135deg, #fcb69f, #ffecd2); /* pêche à rose doux */
+    color: #4b0082;
+    box-shadow: 0 0 20px rgba(255, 182, 193, 0.5);
+    animation: none; /* stop pulse on hover */
+  }
+  
+  /* Pulsation subtile */
+  @keyframes pulse {
+    0%, 100% {
+      transform: scale(1);
+      box-shadow: 0 0 10px rgba(102, 166, 255, 0.4);
+    }
+    50% {
+      transform: scale(1.03);
+      box-shadow: 0 0 16px rgba(102, 166, 255, 0.6);
+    }
+  }
+  
+  .content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+  }
+  
+  

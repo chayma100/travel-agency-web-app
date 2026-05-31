@@ -1,0 +1,196 @@
+
+p {
+    font-size: 24px; 
+    text-align: center;
+}
+
+p strong {
+    font-size: 36px; 
+}
+
+input[type="submit"] {
+    background-color: green; 
+    color: white; 
+    padding: 10px 20px; 
+    border: none;
+    cursor: pointer; 
+    font-size: 18px;
+    margin: 10px 0; 
+}
+
+.img-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.img-container img {
+    margin: 10px;
+    border: 2px solid #ddd; 
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+table p strong {
+    font-size: 36px;
+}
+a:hover {
+    color: #a0454e;
+    text-decoration: underline;
+    transform: scale(4.3);
+}
+a {
+    color: #1a371b;
+    text-decoration: none;
+    font-size: 16px;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.bouton-vert {
+    display: inline-block;
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 10px;
+  }
+  
+  .bouton-vert:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+  }
+  
+  .bouton-vert:active {
+    background-color: #1e7e34;
+  }
+
+  .card-img {
+    position: relative;
+    border: 3px solid transparent;
+    border-radius: 12px;
+    padding: 4px;
+    background: linear-gradient(45deg, #00fff0, #8e44ad, #ff6b6b, #00fff0);
+    background-size: 600% 600%;
+    animation: borderGlow 8s ease infinite;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.5), 0 0 30px rgba(255, 0, 255, 0.3);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+  
+  .card-img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.7), 0 0 40px rgba(255, 0, 255, 0.5);
+  }
+  
+  @keyframes borderGlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  .img-container1 img {
+    margin: 10px;
+    border: 3px solid rgba(0, 255, 255, 0.4); /* Bordure inspirée IA : bleu clair transparent */
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.5); /* Glow IA */
+    transition: transform 0.5s ease, box-shadow 0.5s ease, border-color 0.5s ease;
+    filter: brightness(1.05);
+}
+
+.img-container1 img:hover {
+    transform: scale(1.15); /* Agrandit plus */
+    border-color: rgba(0, 255, 255, 0.8); /* Bordure plus vive au survol */
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.8); /* Glow plus intense */
+    filter: brightness(1.2);
+}
+p strong {
+    font-size: 36px;
+    color: #1c1c2c; /* Cyan néon */
+    text-shadow: 0 0 10px #1c1c2c;
+}
+
+p {
+    color: #b2ebf2; /* Texte plus doux */
+}
+form, fieldset {
+    background-color: rgba(255, 255, 255, 0.02); /* Semi-transparent sur fond noir */
+    border: 1px solid #1c1c2c;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.1);
+}
+.form-container {
+    background-color: var(--form-bg);
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 0 20px var(--shadow-color);
+    max-width: 400px;
+    width: 100%;
+    animation: fadeIn 1s ease-in-out;
+  }
+  button {
+    margin-top: 20px;
+    width: 100%;
+    padding: 12px;
+    background: var(--primary-color);
+    border: none;
+    border-radius: 10px;
+    color: #000;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
+  button:hover {
+    background: var(--accent-color);
+    color: white;
+    box-shadow: 0 0 12px var(--accent-color);
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  form input,
+  form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border: 1px solid var(#14f1ff);
+    border-radius: 8px;
+    background-color: var(#2f2f2f);
+    color: var(#e0f7fa);
+    transition: 0.3s ease;
+    font-size: 14px;
+  }  
+  
+  .ia-button1 {
+    background-color: #1a1a2e; /* Neon Green */
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    border-radius: 50px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px #1a1a2e;
+  }
+  
+  /* Effet de survol du bouton */
+  .ia-button1:hover {
+    background-color: #00c6ff; /* Bleu électrique */
+    box-shadow: 0 0 40px rgba(0, 198, 255, 1);
+    transform: scale(1.1); /* Agrandissement du bouton */
+  }
+
+  

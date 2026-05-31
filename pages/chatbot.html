@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guide Spirituel pour Votre Omra | Agence Al-Ihsan</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@400;700&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/chatbot.css">
+    <link rel="stylesheet" href="../css/njareb.css">
+</head>
+<body>
+    <button class="menu-toggle" id="menuToggle">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <nav class="side-menu" id="sideMenu">
+        <div class="menu-header">
+            <h2>TravelWorld</h2>
+            <p>Explorez le monde</p>
+        </div>
+        <ul class="menu-items">
+            <li><a href="../php/index.php"><i class="fas fa-home"></i> Accueil</a></li>
+            <li><a href="../php/offre.php"><i class="fas fa-globe-americas"></i> Destinations</a></li>
+            <li><a href="../php/serv.php"><i class="fas fa-suitcase-rolling"></i> Packages</a></li>
+            <li><a href="service omra.html"><i class="fas fa-images"></i> Service Omra</a></li>
+            <li><a href="../php/contact.php"><i class="fas fa-envelope-open-text"></i> Contact</a></li>
+            <li><a href="proj.html"><i class="fas fa-envelope-open-text"></i> à propos de nous:</a></li>
+            <li><a href="../php/tableau.php"><i class="fas fa-envelope-open-text"></i> Users</a></li>
+            <li><a href="../php/paiement.php"><i class="fas fa-envelope-open-text"></i> cards</a></li>
+        </ul>
+    </nav>
+
+    <div class="overlay" id="overlay"></div>
+  <div class="container">
+    <h1><i class="fas fa-hands-helping"></i> Votre Guide Spirituel pour l'Omra</h1>
+    <form id="reservationForm">
+        <div class="form-group">
+            <label class="main-question">Souhaitez-vous être accompagné par un érudit pour parfaire votre pèlerinage ?</label>
+            <br>
+            <br>
+            <div class="radio-group">
+                <label>
+                    <input type="radio" name="guideOption" value="oui" required id="guideYes">
+                    <span><i class="fas fa-mosque" style="margin-right: 5px;"></i> Oui, avec gratitude</span>
+                </label>
+                <label>
+                    <input type="radio" name="guideOption" value="non">
+                    <span><i class="fas fa-hiking" style="margin-right: 5px;"></i> Non, merci</span>
+                </label>
+            </div>
+        </div>
+        <br>
+        <br>
+
+        <div class="form-group guide-list" id="guideList" style="display: none;">
+            <div class="guide-details" id="guideDetails"></div>
+            <select id="guideSelect" name="guide" class="form-control">
+                <option value="">-- Choisissez votre mentor --</option>
+                <option value="">-- Choisissez votre mentor --</option>
+                <option value="cheikh_ahmed">Cheikh Ahmed - Spécialiste des rites</option>
+                <option value="dr_amina">Dr. Amina - Guidance féminine</option>
+                <option value="imam_youssef">Imam Youssef - Accompagnement complet</option>
+                <option value="mostafa ahmad">mostafa ahmad - Accompagnement complet</option>
+                <option value="ahmed ben mouhamed">ahmed ben mouhamed - Accompagnement complet</option>
+                <option value="Fatma sallemi">Fatma sallemi - Guidance féminine</option>
+                <option value="youssef ben ali">youssef ben ali - Accompagnement complet</option>
+            </select>
+            
+        </div>
+
+        <button type="submit" class="btn">
+            <i class="fas fa-paper-plane" style="margin-right: 10px;"></i> Confirmer ma demande sacrée
+        </button>
+    </form>
+  </div>
+  <div id="messageContainer" style="display:none;"></div>
+
+    <script src="../js/chatbot.js"></script>
+    <script src="../js/njareb.js"></script>
+</body>
+</html>

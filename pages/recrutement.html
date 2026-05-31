@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form recrutement</title>
+    <link rel="stylesheet" href="../css/recrutement.css">
+</head>
+<body>
+    <section id="recrutement" class="fade-in">
+        <h2>Formulaire de recrutement</h2>
+        <p>Vous souhaitez rejoindre notre équipe ? Remplissez le formulaire ci-dessous et nous vous contacterons.</p>
+        <form>
+            <label for="fullname">Nom complet :</label>
+            <input type="text" id="fullname" name="fullname" required>
+    
+            <label for="email">Email :</label>
+            <input type="email" id="email" name="email" required>
+    
+            <label for="phone">Téléphone :</label>
+            <input type="tel" id="phone" name="phone" required>
+    
+            <label for="cv">CV (PDF uniquement) :</label>
+            <input type="file" id="cv" name="cv" accept=".pdf" required>
+    
+            <label for="message">Message :</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+    
+            <button type="submit">Envoyer</button>
+        </form>
+    </section>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Options de Paiement</title>
+    <link rel="stylesheet" href="../css/paiement.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div id="step-1" class="step">
+            <h2>Résumé de votre réservation</h2>
+            <div class="summary">
+                <div class="summary-item">
+                    <span class="item-label">Forfait Omra VIP</span>
+                    <span class="item-price">1 800€</span>
+                </div>
+                <div class="summary-item">
+                    <span class="item-label">Extension Médine (3 nuits)</span>
+                    <span class="item-price">250€</span>
+                </div>
+                <div class="summary-item">
+                    <span class="item-label">Assurance voyage</span>
+                    <span class="item-price">75€</span>
+                </div>
+                <div class="summary-item total">
+                    <span class="item-label">Total</span>
+                    <span class="item-price">2 125€</span>
+                </div>
+            </div>
+            <div class="payment-btn-container">
+                <button class="pay-now-btn" id="pay-now-btn">Payer Maintenant</button>
+            </div>
+            <a href="confirmation.html">
+                <button id="next-to-payment">Suivant</button>
+            </a>
+        </div>
+        <div id="payment-modal" class="modal hidden">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Choisissez votre méthode de paiement</h2>
+                <div class="payment-options">
+                    <button class="method-btn" data-method="card"><i class="fas fa-credit-card"></i> Carte Bancaire</button>
+                    <button class="method-btn" data-method="paypal"><i class="fab fa-paypal"></i> PayPal</button>
+                    <button class="method-btn" data-method="bank"><i class="fas fa-university"></i> Virement Bancaire</button>
+                </div>
+                <div id="form-area"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/paiement.js"></script>
+</body>
+</html>

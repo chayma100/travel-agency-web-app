@@ -1,0 +1,499 @@
+:root {
+    --ai-primary: #00f2fe;
+    --ai-secondary: #4facfe;
+    --ai-accent: #a18aff;
+    --ai-glow: 0 0 15px rgba(0, 242, 254, 0.6);
+    --dark-bg: #0f172a;
+    --success: #10b981;
+    --error: #ef4444;
+}
+
+body {
+
+    background: var(--dark-bg);
+
+}
+
+.container {
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+}
+
+
+.ai-button {
+    position: relative;
+    padding: 16px 32px;
+    background: linear-gradient(135deg, var(--ai-primary) 0%, var(--ai-secondary) 50%, var(--ai-accent) 100%);
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    box-shadow: var(--ai-glow), 0 4px 20px rgba(79, 172, 254, 0.4);
+    z-index: 1;
+}
+
+.ai-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 25px rgba(0, 242, 254, 0.8), 0 8px 30px rgba(79, 172, 254, 0.6);
+}
+
+.questionnaire {
+    display: none;
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 30px;
+    margin-top: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+.notification {
+    position: fixed;
+    bottom: -100px;
+    right: 30px;
+    background: rgba(21, 31, 56, 0.95);
+    color: white;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    border-left: 5px solid var(--success);
+    backdrop-filter: blur(10px);
+    transform: scale(0.9);
+    opacity: 0;
+    transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    z-index: 1000;
+    max-width: 350px;
+}
+
+.notification.show {
+    bottom: 30px;
+    opacity: 1;
+    transform: scale(1);
+}
+
+.notification.error {
+    border-left-color: var(--error);
+}
+
+.notification-icon {
+    font-size: 2rem;
+    margin-right: 20px;
+    color: var(--success);
+    min-width: 40px;
+    text-align: center;
+}
+
+.notification.error .notification-icon {
+    color: var(--error);
+}
+
+.notification-content {
+    text-align: left;
+}
+
+.notification-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.notification-message {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+.id-display {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 15px;
+    background: rgba(0, 242, 254, 0.1);
+    border-radius: 8px;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border: 1px solid rgba(0, 242, 254, 0.3);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(0, 242, 254, 0.4); }
+    50% { box-shadow: 0 0 0 10px rgba(0, 242, 254, 0); }
+}
+
+
+.btn-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn-icon {
+    font-size: 1.1rem;
+    transition: transform 0.3s;
+}
+
+.ai-button:hover .btn-icon {
+    transform: scale(1.2) rotate(5deg);
+}
+
+.custom-save-btn {
+    position: relative;
+    padding: 12px 24px;
+    background-color: #4f46e5;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    min-width: 120px;
+}
+
+.custom-save-btn:hover {
+    background-color: #4338ca;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.custom-save-btn.processing-state {
+    padding-right: 40px;
+    background-color: #6366f1;
+}
+
+.custom-save-btn.processing-state::after {
+    content: "";
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    width: 16px;
+    height: 16px;
+    margin-top: -8px;
+    border: 2px solid transparent;
+    border-top-color: white;
+    border-radius: 50%;
+    animation: custom-spin 0.8s linear infinite;
+}
+
+
+.custom-success-alert {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 0;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    transform: translateY(100px) scale(0.9);
+    opacity: 0;
+    transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    z-index: 1000;
+    max-width: 320px;
+    border-left: 5px solid #10b981;
+}
+
+.custom-success-alert.visible {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+}
+
+.custom-alert-icon {
+    padding: 20px;
+    background: #10b981;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.custom-alert-content {
+    padding: 20px;
+    flex-grow: 1;
+}
+
+.custom-alert-title {
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    color: #111827;
+}
+
+.custom-alert-text {
+    font-size: 0.9rem;
+    color: #4b5563;
+    line-height: 1.4;
+}
+
+.custom-confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #facc15;
+    opacity: 0;
+}
+
+/* Animations */
+@keyframes custom-spin {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes custom-bounce {
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+    40% {transform: translateY(-20px);}
+    60% {transform: translateY(-10px);}
+}
+
+@keyframes custom-float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0px); }
+}
+
+.custom-floating {
+    animation: custom-float 3s ease-in-out infinite;
+}
+
+
+
+ .page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+.btn-ia-wrapper {
+    position: relative;
+    width: 220px;
+    height: 60px;
+}
+
+#btnCodeRedirect {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        135deg,
+        rgba(100, 115, 255, 0.8) 0%,
+        rgba(155, 81, 224, 0.8) 100%
+    );
+    border: none;
+    border-radius: 14px;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    box-shadow: 
+        0 0 15px rgba(100, 115, 255, 0.5),
+        0 0 30px rgba(155, 81, 224, 0.3);
+    z-index: 1;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#btnCodeRedirect:hover {
+    transform: translateY(-3px);
+    box-shadow: 
+        0 0 25px rgba(100, 115, 255, 0.7),
+        0 0 40px rgba(155, 81, 224, 0.4);
+}
+
+#btnCodeRedirect:active {
+    transform: translateY(1px);
+}
+
+#btnCodeRedirect::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.1),
+        transparent
+    );
+    transition: all 0.7s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+#btnCodeRedirect:hover::before {
+    left: 100%;
+}
+
+.btn-content-ia {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    height: 100%;
+}
+
+.btn-icon-ia {
+    font-size: 1.2rem;
+    transition: transform 0.3s;
+}
+
+#btnCodeRedirect:hover .btn-icon-ia {
+    transform: scale(1.2) rotate(10deg);
+}
+
+.btn-glow-effect {
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(
+        135deg,
+        rgba(100, 115, 255, 1) 0%,
+        rgba(155, 81, 224, 1) 100%
+    );
+    border-radius: 16px;
+    z-index: -1;
+    filter: blur(8px);
+    opacity: 0.7;
+    animation: glowPulse 3s infinite alternate;
+}
+
+@keyframes glowPulse {
+    0% { opacity: 0.6; }
+    100% { opacity: 0.9; }
+}
+
+
+
+
+.custom-save-btn {
+    position: relative;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #4f46e5, #7c3aed);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.custom-save-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.custom-save-btn:active {
+    transform: translateY(0);
+}
+
+.custom-save-btn.saving {
+    padding-right: 40px;
+}
+
+.custom-save-btn.saving::after {
+    content: "";
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    width: 16px;
+    height: 16px;
+    margin-top: -8px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+
+.success-notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-left: 4px solid #10b981;
+    border-radius: 8px;
+    padding: 16px 24px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transform: translateX(120%);
+    transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    z-index: 1000;
+}
+
+.success-notification.show {
+    transform: translateX(0);
+}
+
+.notification-icon {
+    color: #10b981;
+    font-size: 1.5rem;
+}
+
+.notification-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.notification-title {
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 4px;
+}
+
+.notification-message {
+    color: #4b5563;
+    font-size: 0.9rem;
+}
+.spinner {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 1s ease-in-out infinite;
+    margin-left: 8px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
